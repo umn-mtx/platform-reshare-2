@@ -93,7 +93,7 @@ def get_okapi_token(okapi_url, user_name, password):
     try:
         resp = urllib.request.urlopen(req)
         response_data = resp.read().decode('utf-8')
-        token = json.loads(response_data)['token']
+        token = json.loads(response_data)['okapiToken']
     except urllib.error.HTTPError as e:
         sys.exit(' - '.join([
                 'ERROR', 'POST', e.url,
