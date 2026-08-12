@@ -143,11 +143,11 @@ cat resources/2-reservoir/reservoir-dd.json | http POST $okapi/_/discovery/modul
 ```
 All the software required for the reservoir tenant is now deployed. Its [listed](resources/2-reservoir/install.json) in the `resources/2-reservoir/install.json` file. We can enable all module simultaneously by using Okapi's [install](https://github.com/folio-org/okapi/blob/master/doc/guide.md#install-modules-per-tenant) api. Its useful to simulate an install first to confirm that all required software is present.
 ```
-cat resources/2-reservoir/install.json | http POST $okapi/_/proxy/tenants/reservoir/install?simulate=true
+cat resources/2-reservoir/install.json | http POST $okapi/_/proxy/tenants/reservoir/install?simulate=true "x-okapi-token:$token"
 ```
 If the the response reflects the set of modules in the install file, remove the "simulate" query parameter and enable the required modules for the reservoir tenant.
 ```
-cat resources/2-reservoir/install.json | http POST $okapi/_/proxy/tenants/reservoir/install
+cat resources/2-reservoir/install.json | http POST $okapi/_/proxy/tenants/reservoir/install "x-okapi-token:$token"
 ```
 
 ### Create a superuser for the reservoir tenant
@@ -167,7 +167,7 @@ We will be using this repository to build the front end webpack, and enable the 
 Begin by creating a new tenant for reshare. In this example, the tenant id is "rs1"
 
 ```
-cat resources/3-reshare/tenant.json | http POST $okapi/_/proxy/tenants
+cat resources/3-reshare/tenant.json | http POST $okapi/_/proxy/tenants "x-okapi-token:$token"
 ```
 
 ### FOLIO module deployment
@@ -238,7 +238,7 @@ At this point, your flux control repository should include the following manifes
 Commit them and let flux pick up the changes. You should be able to see that the Okapi Hooks job completed and enabled the reshare software on your tenant. Check the enabled software on the new rs1 tenant:
 
 ```
-http $okapi/_/proxy/tenants/rs1/modules
+http $okapi/_/proxy/tenants/rs1/modules "x-okapi-token:$token"
 ```
 
 ### UI Build
