@@ -249,7 +249,7 @@ yarn install
 
 Since UI modules also have module descriptors, we need to post the descriptors for the UI mods to Okapi. From the reshare-ui repo, run:
 ```
-yarn build-module-descriptors
+yarn platform-rs-dev/build-module-descriptors
 ```
 This will build a module descriptor for each UI module in the ModuleDescriptors directory. Change into the ModuleDescriptors directory and post them to Okapi:
 ```
