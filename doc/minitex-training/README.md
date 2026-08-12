@@ -321,7 +321,7 @@ For this setup, we will use the crosslink-illmock application as the directory s
 ```
 Commit the changes, and disable the directory module on the rs1 tenant:
 ```
-echo '[{"id","directory","action":"disable}]' | http POST $okapi/_/proxy/tenants/rs1/install "x-okapi-token:$token"
+echo '[{"id":"directory", "action":"disable"}]' | http POST $okapi/_/proxy/tenants/rs1/install "x-okapi-token:$token"
 ```
 
 ### Create additional tenants
