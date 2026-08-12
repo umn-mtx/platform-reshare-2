@@ -118,7 +118,7 @@ python3 scripts/secure-supertenant.py -u okapi_admin  -o $okapi
 ```
 Try logging in to the supertenant, and save a token
 ```
-http POST $okapi/authn/logon username=okapi_admin password=okapiadmin123
+http POST $okapi/authn/login username=okapi_admin password=okapiadmin123
 ```
 ```
 export token=my.okapi.token
